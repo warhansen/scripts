@@ -1,3 +1,5 @@
+## This works on Ubuntu, Centos, redhat and I suspect Debian
+
 #!/bin/bash
 
 ## Checking if being run as root
