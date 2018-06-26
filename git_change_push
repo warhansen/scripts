@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# You need to have pushed at least once to the repo, meaning your repo
+# should allready be working...
+
+# Edit this before running the script
+git_folder=this_is_your_git_folder
+
+echo `date`
+echo
+echo "git Status:"
+
+cd $git_folder && if [[ `git status --porcelain` ]]; then
+   echo "There are changes to the GIT REPO"
+   cd $git_folder && git add --all && git commit -m "new configs" && git push origin master
+   echo
+   echo "git has been pushed - if not working run from $git_folder:"
+   echo "git config credential.helper store"
+   echo "git push"
+   echo
+else
+   echo
+   echo "There are no changes to the GIT REPO"
+   echo
+fi
+
+echo "Update completed"
+echo "------------------------------------------"
+echo ""
+
