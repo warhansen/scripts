@@ -5,7 +5,9 @@ yum -y update
 sed -i 's+SELINUX=enforcing+SELINUX=disabled+g' /etc/selinux/config
 setenforce 0
 
+# Disabling swap for kubernetes
 sed -i 's+/dev/mapper/os-swap+##/dev/mapper/os-swap+g' /etc/fstab
+sed -i 's+/dev/mapper/centos-swap+##/dev/mapper/centos-swap+g' /etc/fstab
 
 swapoff -a
 
