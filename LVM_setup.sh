@@ -330,10 +330,8 @@ bash_menu() {
 ## Main Menu
 
 echo -e "\033[0;92m Do you want to:
-
 1 -> Create a new LVM or
 2 -> Adding to an existing LVM
-
 Please enter the number of your choice \033[0m
 "
 read -p '> ' choice
@@ -705,3 +703,16 @@ fi
 
 
 
+© 2018 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+API
+Training
+Shop
+Blog
+About
+Press h to open a hovercard with more details.
