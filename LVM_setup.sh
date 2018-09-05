@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+## This script currently does not cater for > 2TB drives. I have yet to lay my
+## hands on one for purely testing purposes. Please let me know if you would
+## like to make a contribution towards one! :-)
+
 ## Checking if being run as root
 
 clear
