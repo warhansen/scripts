@@ -1,11 +1,22 @@
 #!/bin/bash
 
+echo
+date
+echo
+
 ## Install requirements
 rpm -q jq
 if [ $? -ne 0 ]; then
     yum -y install jq
 else
     echo "jq installed"
+fi
+
+rpm -q wget
+if [ $? -ne 0 ]; then
+    yum -y install wget
+else
+    echo "wget installed"
 fi
 
 ## ensure no failures if there are no old versions
@@ -40,3 +51,6 @@ fi
 
 ## Recording old version
 mv $plex_download_file $old_plex_download_file
+
+echo
+echo "**************************************************"
