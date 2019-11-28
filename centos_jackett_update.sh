@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo
+echo "*******************************"
+date
+echo
+
 ## Download git page to check version later
 curl -o jackett_check_update https://github.com/Jackett/Jackett/releases
 

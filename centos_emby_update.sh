@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo
+echo "*******************************"
+date
+echo
+
 ## Download git page to check version later
 curl -o emby_check_update https://github.com/MediaBrowser/Emby.Releases/releases/
 
