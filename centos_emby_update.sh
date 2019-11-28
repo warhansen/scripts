@@ -15,8 +15,9 @@ if [ -f previous_emby_released_version ];then
         echo "There are no updates"
     else
         echo "There are new updates, please wait while they are installed"
-        systemctl stop emby-server
-        yum install https://github.com/MediaBrowser/Emby.Releases/releases/download/${version}/emby-server-rpm_${version}_x86_64.rpm
+        wget https://github.com/MediaBrowser/Emby.Releases/releases/download/${version}/emby-server-rpm_${version}_x86_64.rpm
+	systemctl stop emby-server
+	yum install emby-server-rpm_${version}_x86_64.rpm
 	sleep 10
 	systemctl start emby-server
 	echo "Emby server has been updated"
@@ -25,5 +26,6 @@ else
     echo "No previous version has been recorded."
 fi
 
-## Record current version for future use
+## Record current version for future use and cleanup old repos
 mv emby_released_version previous_emby_released_version
+rm -rf emby-server-rpm_${version}_x86_64.rpm
