@@ -30,4 +30,4 @@ fi
 
 ## Record current version for future use and cleanup old repos
 mv jackett_released_version previous_jackett_released_version
-rm -rf Jackett.Binaries.LinuxAMDx64.tar.gz jackett_released_version new_jackett_version
+rm -rf Jackett.Binaries.LinuxAMDx64.tar.gz jackett_released_version new_jackett_version jackett_check_update

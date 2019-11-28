@@ -28,4 +28,4 @@ fi
 
 ## Record current version for future use and cleanup old repos
 mv emby_released_version previous_emby_released_version
-rm -rf emby-server-rpm_${version}_x86_64.rpm new_emby_version emby_check_update
+rm -rf emby-server-rpm_${version}_x86_64.rpm emby_released_version new_emby_version emby_check_update
