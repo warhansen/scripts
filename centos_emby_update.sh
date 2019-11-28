@@ -21,6 +21,8 @@ if [ -f previous_emby_released_version ];then
 	systemctl start emby-server
 	echo "Emby server has been updated"
     fi
+else
+    echo "No previous version has been recorded."
 fi
 
 ## Record current version for future use
