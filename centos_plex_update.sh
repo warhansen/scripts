@@ -22,40 +22,33 @@ fi
 
 ## Setting Variables
 plex_download_url=https://plex.tv/api/downloads/5.json
-plex_download_file=/root/.5.json
-version_check_file=/root/.version_check.txt
-old_version_check_file=/root/.old_version_check.txt
+plex_download_file=5.json
+version_check_file=plex_version_check
+previous_version_check_file=plex_previous_version_check
 
-## Cleaning up the json file
+## Extract version from the json file
 wget $plex_download_url -O $plex_download_file
 download_url=$(jq .computer $plex_download_file | grep "redhat/plexmediaserver" | grep "x86_64" | sed 's/"url": "//g' | sed 's/",//g' | tr -d [:space:])
 
-## ensure no failures if there are no old versions
-if [ -e $old_version_check_file ]; then
-    echo "there is a recorded old version"
+## If this is the first time this script is run, do nothing, else match versions, if newer version is out, do upgrade
+if [ -f $previous_version_check_file ]; then
+    echo "There is a recorded previous version"
+    if [ diff  $version_check_file $previous_version_check_file ]; then
+        echo "No updates available"
+    else
+        wget $download_url -O plex_update.rpm
+        systemctl stop plexmediaserver
+        yum -y install plex_update.rpm
+        sleep 10
+        systemctl start plexmediaserver    
+    fi
 else
-    touch $old_version_check_file
+    echo "No previous version has been recorded."
 fi
 
 echo $download_url > $version_check_file
 
-diff  $version_check_file $old_version_check_file
-
-## Upgrading if necessary
-if [ $? -ne 0 ]; then
-    wget $download_url -O /root/plex_update.rpm
-    yum -y install /root/plex_update.rpm
-    rm -rf /root/plex_update.rpm
-    systemctl stop plexmediaserver
-    sleep 15
-    systemctl start plexmediaserver
-else
-    echo "No updates available"
-fi
-
-## Recording old version
-mv $version_check_file $old_version_check_file
-
-## Cleaning up
-rm -rf $plex_download_file
+## Record current version for future use and cleanup old repos
+mv $version_check_file $previous_version_check_file
+rm -rf $plex_download_file $version_check_file plex_update.rpm
 echo
