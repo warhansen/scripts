@@ -1,10 +1,5 @@
 #!/bin/bash
 
-echo
-echo "*******************************"
-date
-echo
-
 ## Download git page to check version later
 curl -o emby_check_update https://github.com/MediaBrowser/Emby.Releases/releases/
 
@@ -22,9 +17,10 @@ if [ -f previous_emby_released_version ];then
         echo "There are new updates, please wait while they are installed"
         wget https://github.com/MediaBrowser/Emby.Releases/releases/download/${version}/emby-server-rpm_${version}_x86_64.rpm
 	systemctl stop emby-server
-	yum install emby-server-rpm_${version}_x86_64.rpm
-	sleep 10
+	yum -y install emby-server-rpm_${version}_x86_64.rpm
 	systemctl start emby-server
+        sleep 10
+        systemctl restart emby-server
 	echo "Emby server has been updated"
     fi
 else
@@ -33,4 +29,4 @@ fi
 
 ## Record current version for future use and cleanup old repos
 mv emby_released_version previous_emby_released_version
-rm -rf emby-server-rpm_${version}_x86_64.rpm emby_released_version new_emby_version emby_check_update
+rm -rf emby-server-rpm_${version}_x86_64.rpm new_emby_version emby_check_update

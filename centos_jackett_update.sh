@@ -1,10 +1,5 @@
 #!/bin/bash
 
-echo
-echo "*******************************"
-date
-echo
-
 ## Download git page to check version later
 curl -o jackett_check_update https://github.com/Jackett/Jackett/releases
 
@@ -24,7 +19,7 @@ if [ -f previous_jackett_released_version ];then
 	wget https://github.com/Jackett/Jackett/releases/download/$jackett_version/Jackett.Binaries.LinuxAMDx64.tar.gz
 	systemctl stop jackett
 	tar xzvf Jackett.Binaries.LinuxAMDx64.tar.gz -C /opt
-	chown -R jackett:root /opt/jackett
+	chown -R sonarr:plex /opt/Jackett
 	sleep 10
 	systemctl start jackett
 	echo "jackett server has been updated"
@@ -35,4 +30,4 @@ fi
 
 ## Record current version for future use and cleanup old repos
 mv jackett_released_version previous_jackett_released_version
-rm -rf Jackett.Binaries.LinuxAMDx64.tar.gz jackett_released_version new_jackett_version jackett_check_update
+rm -rf Jackett.Binaries.LinuxAMDx64.tar.gz jackett_released_version new_jackett_version
