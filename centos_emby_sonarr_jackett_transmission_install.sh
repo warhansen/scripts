@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ## Getting environment ready
+yum update
 yum remove -y firewalld
 setenforce 0
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
@@ -49,6 +50,7 @@ yum -y install transmission-cli transmission-common transmission-daemon
 systemctl enable transmission-daemon
 systemctl start transmission-daemon
 systemctl stop transmission-daemon
+sleep 5
 sed -i 's/"rpc-whitelist": "127.0.0.1"/"rpc-whitelist": "*.*.*.*"/g' /var/lib/transmission/.config/transmission-daemon/settings.json
 systemctl start transmission-daemon
 
