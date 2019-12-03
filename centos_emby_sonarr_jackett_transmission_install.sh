@@ -55,7 +55,7 @@ sed -i 's/"rpc-whitelist": "127.0.0.1"/"rpc-whitelist": "*.*.*.*"/g' /var/lib/tr
 systemctl start transmission-daemon
 
 ## Install Jackett
-sudo yum -y install libicu
+yum -y install libicu
 useradd jackett -s /sbin/nologin
 wget https://github.com/Jackett/Jackett/releases/download/v0.12.926/Jackett.Binaries.LinuxAMDx64.tar.gz
 tar xzvf Jackett.Binaries.LinuxAMDx64.tar.gz -C /opt
