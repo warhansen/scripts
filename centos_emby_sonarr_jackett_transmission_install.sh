@@ -49,7 +49,7 @@ yum -y install transmission-cli transmission-common transmission-daemon
 systemctl enable transmission-daemon
 systemctl start transmission-daemon
 systemctl stop transmission-daemon
-sed -i 's/"rpc-whitelist": "127.0.0.1"/""rpc-whitelist": "*.*.*.*"/g' /var/lib/transmission/.config/transmission-daemon/settings.json
+sed -i 's/"rpc-whitelist": "127.0.0.1"/"rpc-whitelist": "*.*.*.*"/g' /var/lib/transmission/.config/transmission-daemon/settings.json
 systemctl start transmission-daemon
 
 ## Install Jackett
