@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Getting environment ready
-yum update
+yum update -y
 yum remove -y firewalld
 setenforce 0
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
