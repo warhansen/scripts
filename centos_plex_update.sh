@@ -33,7 +33,7 @@ download_url=$(jq .computer $plex_download_file | grep "redhat/plexmediaserver" 
 ## If this is the first time this script is run, do nothing, else match versions, if newer version is out, do upgrade
 if [ -f $previous_version_check_file ]; then
     echo "There is a recorded previous version"
-    if [ diff  $version_check_file $previous_version_check_file ]; then
+    if diff  $version_check_file $previous_version_check_file; then
         echo "No updates available"
     else
         wget $download_url -O plex_update.rpm
