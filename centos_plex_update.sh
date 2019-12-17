@@ -1,7 +1,9 @@
 #!/bin/bash
 
 echo
-echo "*******************************"
+echo "**************************************************"
+date
+echo "Updating Plex"
 date
 echo
 
