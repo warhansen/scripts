@@ -2,7 +2,7 @@
 
 #######################################################
 ##                                                   ##
-##   Move the scripts/Media Server/ to ~/update      ##
+##   Move the "scripts/Media Server/" to "~/update"  ##
 ##   Then use this script to run all the             ##
 ##   updates sequentially from a cron                ##
 ##                                                   ##
