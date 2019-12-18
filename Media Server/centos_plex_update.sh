@@ -4,7 +4,6 @@ echo
 echo "**************************************************"
 date
 echo "Updating Plex"
-date
 echo
 
 ## Install requirements

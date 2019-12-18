@@ -4,7 +4,6 @@ echo
 echo "**************************************************"
 date
 echo "Updating Jackett"
-date
 echo
 
 ## Download git page to check version later
