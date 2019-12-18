@@ -31,6 +31,8 @@ previous_version_check_file=plex_previous_version_check
 wget $plex_download_url -O $plex_download_file
 download_url=$(jq .computer $plex_download_file | grep "redhat/plexmediaserver" | grep "x86_64" | sed 's/"url": "//g' | sed 's/",//g' | tr -d [:space:])
 echo $download_url > $version_check_file
+echo "Current version is: "
+cat $version_check_file
 
 ## If this is the first time this script is run, do nothing, else match versions, if newer version is out, do upgrade
 if [ -f $previous_version_check_file ]; then

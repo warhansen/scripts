@@ -21,8 +21,8 @@ echo
 sleep 10
 ./centos_jackett_update.sh
 sleep 10
-./centos_plex_update.sh
-sleep 10
+##./centos_plex_update.sh                                 ## I use this because my family is used to plex now... :-(
+##sleep 10
 
 echo
 echo "Done, thanks for playing"
