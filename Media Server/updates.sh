@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#######################################################
-##                                                   ##
-##   Move the "scripts/Media Server/" to "~/update"  ##
-##   Then use this script to run all the             ##
-##   updates sequentially from a cron                ##
-##                                                   ##
-#######################################################
+###########################################################
+##                                                       ##
+##   Move the "scripts/Media Server/" to "/root/update"  ##
+##          Then use this script to run all the          ##
+##           updates sequentially from a cron            ##
+##                                                       ##
+###########################################################
 
 ## Add this to the crontab:
 ## @reboot cd /root/update && updates.sh >> updates.log
