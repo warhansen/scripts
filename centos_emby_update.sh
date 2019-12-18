@@ -28,7 +28,7 @@ if [ -f previous_emby_released_version ]; then
         else
             wget https://github.com/MediaBrowser/Emby.Releases/releases/download/${version}/emby-server-rpm_${version}_x86_64.rpm
             systemctl stop emby-server
-            yum install emby-server-rpm_${version}_x86_64.rpm
+            yum -y install emby-server-rpm_${version}_x86_64.rpm
             systemctl start emby-server
             sleep 10
             systemctl restart emby-server
