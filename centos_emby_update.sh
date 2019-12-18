@@ -11,8 +11,7 @@ echo
 curl -o emby_check_update https://github.com/MediaBrowser/Emby.Releases/releases/
 
 ## Extract version from above page
-grep "/MediaBrowser/Emby.Releases/tree" emby_check_update > new_emby_version
-version=$(cat new_emby_version | sed 1q  | egrep -o '[0-9].*' | egrep -o '^[^"]*"' | sed 's/"//g')
+version=$(curl -L https://github.com/MediaBrowser/Emby.Releases/releases/latest | grep 'href="/MediaBrowser/Emby.Releases/releases/tag' | egrep -o '[0-9].*' | egrep -o '^[^"]*"' | sed 's/"//g')
 echo "Current released version is: " $version
 echo $version > emby_released_version
 
