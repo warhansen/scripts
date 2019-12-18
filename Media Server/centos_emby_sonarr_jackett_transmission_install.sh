@@ -1,5 +1,12 @@
 #!/bin/bash
 
+thisdir=$(pwd)
+
+if [ $thisdir != "/root" ]; then
+    echo "Please run this script from the 'root' folder!"
+    exit(1)
+fi
+
 ## Getting environment ready
 yum update -y
 yum remove -y firewalld
