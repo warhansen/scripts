@@ -25,7 +25,7 @@ if [ -f previous_jackett_released_version ];then
 	wget https://github.com/Jackett/Jackett/releases/download/$jackett_version/Jackett.Binaries.LinuxAMDx64.tar.gz
 	systemctl stop jackett
 	tar xzvf Jackett.Binaries.LinuxAMDx64.tar.gz -C /opt
-	chown -R sonarr:plex /opt/Jackett
+	chown -R sonarr:jackett /opt/Jackett
 	sleep 10
 	systemctl start jackett
 	echo "jackett server has been updated"
