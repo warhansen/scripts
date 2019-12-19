@@ -25,7 +25,7 @@ fi
 plex_download_url=https://plex.tv/api/downloads/5.json
 plex_download_file=5.json
 version_check_file=plex_version_check
-previous_version_check_file=plex_previous_version_check
+previous_version_check_file=previous_plex_released_version
 
 ## Extract version from the json file
 wget $plex_download_url -O $plex_download_file
