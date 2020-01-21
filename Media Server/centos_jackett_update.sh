@@ -24,6 +24,7 @@ if [ -f previous_jackett_released_version ];then
         echo "There are new updates, please wait while they are installed"
 	wget https://github.com/Jackett/Jackett/releases/download/$jackett_version/Jackett.Binaries.LinuxAMDx64.tar.gz
 	systemctl stop jackett
+	sleep 5
 	tar xzvf Jackett.Binaries.LinuxAMDx64.tar.gz -C /opt
 	chown -R sonarr:jackett /opt/Jackett
 	sleep 10
