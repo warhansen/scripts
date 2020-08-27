@@ -16,6 +16,12 @@ ScriptAlias   /munin-cgi/munin-cgi-graph /var/www/html/munin/cgi/munin-cgi-graph
 #ScriptAlias /munin-cgi/ /var/www/html/munin/cgi/
 
 # FastCGI
+alias /munin /var/www/html/munin
+ScriptAlias   /munin-cgi/munin-cgi-graph /var/www/html/munin/cgi/munin-cgi-graph
+
+#ScriptAlias /munin-cgi/ /var/www/html/munin/cgi/
+
+# FastCGI
 <Directory "/var/www/html/munin/cgi">
     Options +ExecCGI
     <IfModule mod_fcgid.c>
@@ -32,6 +38,7 @@ ScriptAlias   /munin-cgi/munin-cgi-graph /var/www/html/munin/cgi/munin-cgi-graph
 EOF
 
 chown -R munin:apache /var/log/munin/
+chown -R munin:apache /var/www/html/munin
 
 sleep 5
 
