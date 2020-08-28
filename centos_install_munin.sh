@@ -37,7 +37,6 @@ ScriptAlias   /munin-cgi/munin-cgi-graph /var/www/html/munin/cgi/munin-cgi-graph
 </directory>
 EOF
 
-chown -R munin:apache /var/log/munin/
 chown -R munin:apache /var/www/html/munin
 
 sleep 5
