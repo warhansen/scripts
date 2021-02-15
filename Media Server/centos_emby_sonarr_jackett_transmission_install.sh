@@ -52,14 +52,10 @@ systemctl daemon-reload
 systemctl enable sonarr.service
 systemctl start sonarr.service
 
-## Install transmission
-yum -y install transmission-cli transmission-common transmission-daemon
-systemctl enable transmission-daemon
-systemctl start transmission-daemon
-systemctl stop transmission-daemon
-sleep 5
-sed -i 's/"rpc-whitelist": "127.0.0.1"/"rpc-whitelist": "*.*.*.*"/g' /var/lib/transmission/.config/transmission-daemon/settings.json
-systemctl start transmission-daemon
+## Install qBittorrent
+yum install qbittorrent-nox
+/usr/bin/qbittorrent-nox --daemon
+
 
 ## Install Jackett
 yum -y install libicu
@@ -73,13 +69,13 @@ echo
 echo "############################################################################"
 echo "##   Emby should nou be available at http://<servername>:8096             ##"
 echo "##   Sonarr should now be available on http://<servername>:8989           ##"
-echo "##   Transmission should now be accessible from http://<servername>:9091  ##"
+echo "##   qBittorrent should now be accessible from http://<servername>:8080   ##"
 echo "##   Jackett can now be accessed at http://<servername>:9117              ##"
 echo "############################################################################"
 echo
 echo "Remember these services will still need to be setup from their respective frontends/urls"
 echo
-echo "I recommend at the very least you add a blocklist to transmission: http://john.bitsurge.net/public/biglist.p2p.gz"
+echo "I recommend at the very least you add a blocklist to qBittorrent: http://john.bitsurge.net/public/biglist.p2p.gz"
 echo
 read -p "Press enter to continue"
 echo
