@@ -35,7 +35,7 @@ bash /usr/bin/qbittorrent-nox --daemon
 ## Install Jackett
 yum -y install libicu
 useradd jackett -s /sbin/nologin
-wget https://github.com/Jackett/Jackett/releases/download/v0.12.1623/Jackett.Binaries.LinuxAMDx64.tar.gz
+wget https://github.com/Jackett/Jackett/releases/download/v0.17.538/Jackett.Binaries.LinuxAMDx64.tar.gz
 tar xzvf Jackett.Binaries.LinuxAMDx64.tar.gz -C /opt
 chown -R sonarr:jackett /opt/Jackett
 cd /opt/Jackett/ && ./install_service_systemd.sh
