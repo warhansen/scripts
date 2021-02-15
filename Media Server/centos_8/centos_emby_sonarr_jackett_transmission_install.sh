@@ -21,15 +21,15 @@ systemctl start emby-server
 rm -rf emby-server-rpm_4.3.0.30_x86_64.rpm
 
 ## Sonarr Install
-sudo yum install snapd
-sudo systemctl enable --now snapd.socket
-sudo ln -s /var/lib/snapd/snap /snap
-sudo snap install sonarr
-sudo snap install sonarr   # Sometimes it fails the first time round.
+yum -y install snapd
+systemctl enable --now snapd.socket
+ln -s /var/lib/snapd/snap /snap
+snap install sonarr
+snap install sonarr   # Sometimes it fails the first time round.
 
 
 ## Install qBittorrent
-yum install qbittorrent-nox
+yum -y install qbittorrent-nox
 bash /usr/bin/qbittorrent-nox --daemon
 
 ## Install Jackett
