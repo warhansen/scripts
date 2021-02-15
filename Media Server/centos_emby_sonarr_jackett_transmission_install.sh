@@ -54,8 +54,7 @@ systemctl start sonarr.service
 
 ## Install qBittorrent
 yum install qbittorrent-nox
-/usr/bin/qbittorrent-nox --daemon
-
+bash /usr/bin/qbittorrent-nox --daemon
 
 ## Install Jackett
 yum -y install libicu
