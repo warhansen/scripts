@@ -52,6 +52,35 @@ systemctl daemon-reload
 systemctl enable sonarr.service
 systemctl start sonarr.service
 
+
+## Radarr Install - Same as Sonarr except for name changes
+useradd radarr -s /sbin/nologin
+cd /opt/
+wget https://github.com/Radarr/Radarr/releases/download/v3.0.2.4552/Radarr.master.3.0.2.4552.linux.tar.gz
+tar xzvf Radarr.master.3.0.2.4552.linux.tar.gz
+rm -rf /opt/Radarr.master.3.0.2.4552.linux.tar.gz
+
+tee /etc/systemd/system/radarr.service << EOF
+[Unit]
+Description=Radarr Daemon
+After=syslog.target network.target
+
+[Service]
+User=radarr
+Group=radarr
+Type=simple
+ExecStart=/usr/bin/mono /opt/Radarr/Radarr.exe -nobrowser -data /opt/Radarr
+TimeoutStopSec=20
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+systemctl daemon-reload
+systemctl enable radarr.service
+systemctl start radarr.service
+
+
 ## Install qBittorrent
 yum install qbittorrent-nox
 bash /usr/bin/qbittorrent-nox --daemon
@@ -68,6 +97,7 @@ echo
 echo "############################################################################"
 echo "##   Emby should nou be available at http://<servername>:8096             ##"
 echo "##   Sonarr should now be available on http://<servername>:8989           ##"
+echo "##   Radarr should now be available on http://<servername>:7878           ##"
 echo "##   qBittorrent should now be accessible from http://<servername>:8080   ##"
 echo "##   Jackett can now be accessed at http://<servername>:9117              ##"
 echo "############################################################################"
