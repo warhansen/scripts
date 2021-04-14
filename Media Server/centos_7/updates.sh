@@ -10,7 +10,7 @@
 
 ## Add this to the crontab:
 ## @reboot cd /root/update && updates.sh >> updates.log
-## 0 3 * * * cd /root/update && updates.sh >> updates.log
+## 0 3 * * * cd /root/update && bash updates.sh >> updates.log
 
 echo "Update check starting at: "
 date
