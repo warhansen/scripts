@@ -25,13 +25,9 @@ rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3FA7E032808
 yum-config-manager --add-repo http://download.mono-project.com/repo/centos/
 yum install -y wget mediainfo libzen libmediainfo curl gettext mono-core mono-devel sqlite.x86_64
 useradd sonarr -s /sbin/nologin
-wget http://update.sonarr.tv/v2/master/mono/NzbDrone.master.tar.gz
-tar -xvf NzbDrone.master.tar.gz -C /opt/
-rm -f NzbDrone.master.tar.gz
-mkdir /opt/sonarr
-mkdir /opt/sonarr/bin
-mv /opt/NzbDrone/* /opt/sonarr/bin
-rm -rf /opt/NzbDrone
+wget https://download.sonarr.tv/v3/main/3.0.6.1342/Sonarr.main.3.0.6.1342.linux.tar.gz
+tar -xzvf Sonarr.main.3.0.6.1342.linux.tar.gz -C /opt/
+rm -f Sonarr.main.3.0.6.1342.linux.tar.gz
 chown -R sonarr:sonarr /opt/sonarr
 
 tee /etc/systemd/system/sonarr.service << EOF
@@ -42,7 +38,7 @@ After=syslog.target network.target
 User=sonarr
 Group=sonarr
 Type=simple
-ExecStart=/usr/bin/mono /opt/sonarr/bin/NzbDrone.exe -nobrowser -data /opt/sonarr
+ExecStart=/usr/bin/mono /opt/Sonarr/Sonarr.exe -nobrowser -data /opt/Sonarr
 TimeoutStopSec=20
 [Install]
 WantedBy=multi-user.target
