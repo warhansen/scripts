@@ -9,6 +9,7 @@ fi
 
 ## Getting environment ready
 yum update -y
+yum install -y wget tar
 yum remove -y firewalld
 setenforce 0
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
