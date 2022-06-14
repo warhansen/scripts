@@ -1,4 +1,4 @@
-To use this docker, first create the docker using the dockerfile inside the "docker directory."
+To use this docker, first create the docker using the dockerfile inside the "docker" directory.
 
 Once that is complete, then run with this command:
 
