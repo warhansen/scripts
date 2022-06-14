@@ -1,0 +1,10 @@
+FROM ubuntu
+
+RUN apt update -y && apt install -y python3-pip python3-venv
+RUN python3 -m venv venv
+RUN python3 -m pip install flask
+
+ENTRYPOINT [ "python3" ]
+CMD [ "/home/python_app.py" ]
+
+EXPOSE 5000
